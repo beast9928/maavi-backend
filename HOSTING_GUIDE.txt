@@ -1,0 +1,33 @@
+MAAVI - QUICK HOSTING GUIDE (Railway.app - FREE)
+=================================================
+
+BACKEND (Railway):
+1. Go to railway.app and login with GitHub
+2. New Project -> Deploy from GitHub repo
+3. Push backend to GitHub first:
+   git init
+   git add .
+   git commit -m Maavi backend
+   git remote add origin YOUR_GITHUB_REPO_URL
+   git push origin main
+4. In Railway: New -> GitHub Repo -> select your repo
+5. Add environment variables (Settings -> Variables):
+   GROQ_API_KEY = your_new_key
+   AI_PROVIDER  = groq
+   SECRET_KEY   = maavi-launch-secret-2026-xK9mP
+6. Your backend will be live at: https://your-app.railway.app
+
+FRONTEND (Vercel - FREE):
+1. In frontend folder create .env file:
+   REACT_APP_API_URL=https://your-railway-backend.railway.app/api/v1
+2. Go to vercel.com -> Login -> New Project -> Import frontend folder
+3. Add env var REACT_APP_API_URL in Vercel settings
+4. Deploy -> your app is live!
+
+LOGIN CREDENTIALS FOR DEMO:
+   demo@cacopilot.in  /  demo@1234
+   admin@maavi.ai     /  admin@1234
+   ca@maavi.ai        /  ca@1234
+   lawyer@maavi.ai    /  law@1234
+
+TOTAL TIME: ~15 minutes
