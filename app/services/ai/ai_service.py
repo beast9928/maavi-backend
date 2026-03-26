@@ -10,7 +10,7 @@ def _call_ai(system_msg, user_msg, json_mode=False):
         try:
             from groq import Groq
             r = Groq(api_key=groq_key).chat.completions.create(
-                model="llama3-8b-8192",
+                model="llama-3.3-70b-versatile",
                 messages=[{"role":"system","content":system_msg},{"role":"user","content":user_msg+hint}],
                 max_tokens=2048, temperature=0.2)
             return r.choices[0].message.content.strip()
