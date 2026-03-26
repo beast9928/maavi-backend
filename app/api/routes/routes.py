@@ -1,4 +1,4 @@
-# AI imports handled via aliases
+from app.services.ai.ai_service import ai_chat_response, generate_financial_insight
 """
 Invoice Routes
 """
@@ -199,7 +199,6 @@ Analytics / Dashboard Routes
 from fastapi import APIRouter
 from app.schemas import DashboardStats, FinancialInsight
 from app.models import Transaction, LedgerEntry, GSTMismatch, Document
-# AI imports handled via aliases
 
 analytics_router = APIRouter(prefix="/analytics", tags=["Analytics"])
 
@@ -369,7 +368,6 @@ Chat Routes
 from fastapi import APIRouter
 from app.schemas import ChatMessage, ChatResponse
 from app.models import AIConversation
-# AI imports handled via aliases
 import uuid as uuid_lib
 
 chat_router = APIRouter(prefix="/chat", tags=["AI Chat"])
@@ -418,7 +416,7 @@ async def send_message(
     history_dicts = [{"role": h.role, "message": h.message} for h in history]
 
     # Get AI response
-    response = chat_with_financial_data(msg.message, financial_context, history_dicts)
+    response = ai_chat_response(msg.message, financial_context)
 
     # Save conversation
     user_msg = AIConversation(
