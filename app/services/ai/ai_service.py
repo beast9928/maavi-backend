@@ -3,7 +3,10 @@ import json, logging, os
 logger = logging.getLogger(__name__)
 
 def _call_ai(system_msg, user_msg, json_mode=False):
-    gemini_key= os.getenv("AIzaSyDUbvwb6WDiIPxXMmrmBQiknRYfuBRJ-Cg","")
+    groq_key  = os.getenv("GROQ_API_KEY","")
+    gemini_key= os.getenv("GEMINI_API_KEY","")
+    anth_key  = os.getenv("ANTHROPIC_API_KEY","")
+    openai_key= os.getenv("OPENAI_API_KEY","")
     hint = "\nRespond ONLY with valid JSON. No markdown, no backticks." if json_mode else ""
 
     if groq_key:
