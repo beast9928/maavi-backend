@@ -3,7 +3,7 @@ import json, logging, os
 logger = logging.getLogger(__name__)
 
 def _call_ai(system_msg, user_msg, json_mode=False):
-    groq_key  = os.getenv("GROQ_API_KEY","")
+    groq_key  = os.getenv("GROQ_API_KEY","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")
     gemini_key= os.getenv("GEMINI_API_KEY","")
     anth_key  = os.getenv("ANTHROPIC_API_KEY","")
     openai_key= os.getenv("OPENAI_API_KEY","")
