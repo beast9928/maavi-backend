@@ -71,7 +71,7 @@ async def process_document(document_id: int, db: Session) -> None:
         document.extracted_data = extracted_data
 
         # Step 4: Generate AI summary
-        document.ai_summary = ai_chat_response(ocr_text, document.doc_type.value)
+        document.ai_summary = ai_chat_response(f"Summarize this {document.doc_type.value} document in 2 lines: {ocr_text[:1000]}")
 
         # Step 5: Auto-create invoice record if this is an invoice
         if document.doc_type == DocumentType.INVOICE and extracted_data:
