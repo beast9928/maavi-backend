@@ -8,8 +8,11 @@ class Settings(BaseSettings):
     APP_NAME: str = "Maavi AI Copilot Pro"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = True
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000"
-
+    ALLOWED_ORIGINS: str = (
+    "http://localhost:3000,"
+    "http://127.0.0.1:3000,"
+    "https://maavi-frontend.vercel.app"
+)
     # Database
     DATABASE_URL: str = "postgresql://postgres:password@localhost:5432/ai_ca_copilot"
 
